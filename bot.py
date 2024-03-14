@@ -30,9 +30,6 @@ async def run(prompt: str):
 async def on_message(message: discord.Message):
     if bot.user.mentioned_in(message):
         cmd = message.content.replace(f"<@{bot.user.id}>", "").strip()
-        if message.type == discord.MessageType.reply:
-            msg = await message.channel.fetch_message(message.reference.message_id)
-            cmd = msg.content + '\n' + cmd
 
         t = time.time()
 
